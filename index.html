@@ -4,190 +4,124 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tal Peer</title>
-<meta name="description" content="Tal Avraham Peer, Ph.D. — physics education researcher and JSSE 2026 presenter.">
+<meta name="description" content="Tal Peer, Ph.D. — physics education researcher and educator, Kagoshima, Japan.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
   :root{
-    --bg: #F5F3ED;
-    --paper: #ECE7D9;
-    --ink: #20232C;
-    --ink-soft: #4E5364;
-    --ink-faint: #8B8A7E;
-    --seal: #C23A28;
-    --seal-soft: #C23A2822;
-    --line: #DAD4C3;
-    --focus: #2B5B84;
+    --bg:#F5F3ED; --paper:#EBE6D8;
+    --ink:#20232C; --ink-soft:#4E5364; --ink-faint:#87877B;
+    --accent:#167A5A; --accent-strong:#0E5F46; --accent-soft:#167A5A22;
+    --line:#DAD4C3; --focus:#0E5F46;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg: #15171C;
-      --paper: #1D2027;
-      --ink: #EDE9DD;
-      --ink-soft: #B7B3A6;
-      --ink-faint: #6E7180;
-      --seal: #E4634C;
-      --seal-soft: #E4634C2a;
-      --line: #2C2F38;
-      --focus: #7FB0DA;
+      --bg:#14171B; --paper:#1C2026;
+      --ink:#ECE8DC; --ink-soft:#B4B1A5; --ink-faint:#6E7180;
+      --accent:#4FBE92; --accent-strong:#6FD0A8; --accent-soft:#4FBE9226;
+      --line:#2B2F37; --focus:#6FD0A8;
     }
+    :root:not([data-theme="light"]) .crest{background:#FBFAF7; padding:0.5rem 0.7rem;}
   }
   :root[data-theme="dark"]{
-    --bg: #15171C;
-    --paper: #1D2027;
-    --ink: #EDE9DD;
-    --ink-soft: #B7B3A6;
-    --ink-faint: #6E7180;
-    --seal: #E4634C;
-    --seal-soft: #E4634C2a;
-    --line: #2C2F38;
-    --focus: #7FB0DA;
+    --bg:#14171B; --paper:#1C2026;
+    --ink:#ECE8DC; --ink-soft:#B4B1A5; --ink-faint:#6E7180;
+    --accent:#4FBE92; --accent-strong:#6FD0A8; --accent-soft:#4FBE9226;
+    --line:#2B2F37; --focus:#6FD0A8;
   }
 
   *{box-sizing:border-box;}
   html{background:var(--bg);}
   body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
+    margin:0; background:var(--bg); color:var(--ink);
     font-family:"Zen Kaku Gothic New","Hiragino Sans",system-ui,sans-serif;
-    line-height:1.75;
-    -webkit-font-smoothing:antialiased;
+    line-height:1.75; -webkit-font-smoothing:antialiased;
   }
   [hidden]{display:none!important;}
-
   a{color:inherit;}
-  a.link{color:var(--focus); text-decoration-thickness:1px; text-underline-offset:3px;}
-  a:focus-visible, button:focus-visible{outline:2px solid var(--focus); outline-offset:3px;}
+  a.link{color:var(--accent-strong); text-decoration-thickness:1px; text-underline-offset:3px;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:2px;}
 
-  .wrap{max-width:700px; margin:0 auto; padding:4.5rem 1.5rem 5rem;}
+  .wrap{max-width:720px; margin:0 auto; padding:0 1.5rem;}
 
-  .top{display:flex; justify-content:flex-end; margin-bottom:2.5rem;}
-  .langtoggle{
-    display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden;
-    font-family:"JetBrains Mono",monospace; font-size:0.72rem; letter-spacing:0.04em;
+  /* ---- top nav (shared across pages) ---- */
+  .topnav{
+    border-bottom:1px solid var(--line);
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(6px);
   }
-  .langtoggle button{
-    appearance:none; border:none; background:transparent; color:var(--ink-faint);
-    padding:0.4rem 0.85rem; cursor:pointer; font:inherit;
-  }
-  .langtoggle button.active{background:var(--seal); color:#fff;}
+  .topnav .row{max-width:720px; margin:0 auto; padding:0.9rem 1.5rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;}
+  .brand{font-family:"Shippori Mincho",serif; font-weight:600; font-size:1.05rem; text-decoration:none; color:var(--ink);}
+  .navlinks{display:flex; gap:1.15rem; margin-left:auto; align-items:center; flex-wrap:wrap;}
+  .navlinks a{text-decoration:none; color:var(--ink-soft); font-size:0.9rem; padding-bottom:2px; border-bottom:2px solid transparent;}
+  .navlinks a:hover{color:var(--ink);}
+  .navlinks a.active{color:var(--ink); border-bottom-color:var(--accent);}
+  .langtoggle{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; font-family:"JetBrains Mono",monospace; font-size:0.68rem; letter-spacing:0.04em;}
+  .langtoggle button{appearance:none; border:none; background:transparent; color:var(--ink-faint); padding:0.35rem 0.7rem; cursor:pointer; font:inherit;}
+  .langtoggle button.active{background:var(--accent); color:#fff;}
 
-  header.hero{
-    display:flex; align-items:center; gap:1.6rem; margin-bottom:0.6rem; flex-wrap:wrap;
-  }
-  .hanko{flex:none; width:82px; height:82px;}
-  .hanko .ring{fill:none; stroke:var(--seal); stroke-width:5;}
-  .hanko text{
-    font-family:"Shippori Mincho",serif; font-size:21px; fill:var(--seal); text-anchor:middle;
-  }
-  .nameblock h1{
-    font-family:"Shippori Mincho",serif; font-weight:600; font-size:2.15rem;
-    margin:0 0 0.15rem; letter-spacing:0.01em; text-wrap:balance;
-  }
-  .nameblock .kana:not([hidden]){
-    display:block; font-size:1.05rem; color:var(--ink-soft); font-weight:400; margin-top:0.1rem;
-  }
-  .tagline{
-    margin:1.1rem 0 0.2rem; font-size:1.05rem; color:var(--ink-soft);
-  }
-  .locline{
-    margin:0.3rem 0 0; font-family:"JetBrains Mono",monospace; font-size:0.78rem;
-    color:var(--ink-faint); letter-spacing:0.03em; text-transform:uppercase;
-  }
+  /* ---- hero ---- */
+  header.hero{display:flex; align-items:center; gap:1.7rem; margin:3.6rem 0 0.4rem; flex-wrap:wrap;}
+  .crest{flex:none; display:inline-flex; border-radius:9px;}
+  .crest img{height:52px; width:auto; display:block;}
+  :root[data-theme="dark"] .crest{background:#FBFAF7; padding:0.5rem 0.7rem;}
+  .nameblock{flex:1; min-width:240px;}
+  .nameblock h1{font-family:"Shippori Mincho",serif; font-weight:600; font-size:2.2rem; margin:0 0 0.15rem; letter-spacing:0.01em; text-wrap:balance;}
+  .nameblock .kana:not([hidden]){display:block; font-size:1.05rem; color:var(--ink-soft); font-weight:400; margin-top:0.15rem;}
+  .tagline{margin:1rem 0 0.2rem; font-size:1.05rem; color:var(--ink-soft);}
+  .locline{margin:0.3rem 0 0; font-family:"JetBrains Mono",monospace; font-size:0.78rem; color:var(--ink-faint); letter-spacing:0.03em; text-transform:uppercase;}
 
-  .wavedivider{display:block; width:100%; height:28px; margin:3.2rem 0;}
-  .wavedivider path{fill:none; stroke:var(--ink-faint); stroke-width:1.3; opacity:0.55;}
+  .wavedivider{display:block; width:100%; height:28px; margin:3rem 0;}
+  .wavedivider path{fill:none; stroke:var(--accent); stroke-width:1.3; opacity:0.5;}
 
   section{margin-bottom:3.2rem;}
-  section h2{
-    font-family:"Shippori Mincho",serif; font-weight:600; font-size:1.3rem;
-    margin:0 0 1.1rem; padding-bottom:0.6rem; border-bottom:1px solid var(--line);
-  }
-  section h2 .sub:not([hidden]){
-    display:block; font-family:"Zen Kaku Gothic New",sans-serif; font-weight:400;
-    font-size:0.78rem; color:var(--ink-faint); margin-top:0.25rem; letter-spacing:0.02em;
-  }
+  section h2{font-family:"Shippori Mincho",serif; font-weight:600; font-size:1.3rem; margin:0 0 1.2rem; padding-bottom:0.6rem; border-bottom:1px solid var(--line);}
 
-  .about p{margin:0; max-width:62ch; color:var(--ink-soft); font-size:1rem;}
+  /* ---- about ---- */
+  .about-body{display:flex; gap:1.6rem; align-items:flex-start; flex-wrap:wrap;}
+  .about-photo{flex:none; width:112px; height:112px; border-radius:50%; object-fit:cover; border:1px solid var(--line); box-shadow:0 1px 0 var(--line);}
+  .about-text{flex:1; min-width:240px;}
+  .about-text p{margin:0 0 0.9rem; max-width:60ch; color:var(--ink-soft); font-size:1rem;}
+  .about-text p:last-child{margin-bottom:0;}
 
-  .research-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1.3rem;}
-  .research-item{display:grid; grid-template-columns:auto 1fr; gap:0.9rem 1rem; align-items:baseline;}
-  .research-tag{
-    font-family:"JetBrains Mono",monospace; font-size:0.72rem; color:var(--seal);
-    border:1px solid var(--seal-soft); border-radius:4px; padding:0.15rem 0.4rem;
-    white-space:nowrap; align-self:start; margin-top:0.15rem;
-  }
-  .research-item h3{
-    grid-column:2; margin:0 0 0.3rem; font-size:1rem; font-weight:700; color:var(--ink);
-  }
-  .research-item p{grid-column:2; margin:0; color:var(--ink-soft); font-size:0.95rem;}
-  .research-item .heb{font-weight:400; color:var(--ink-faint); font-size:0.85rem;}
+  /* ---- news ---- */
+  .newsitem{display:grid; grid-template-columns:auto 1fr; gap:0.4rem 1.1rem; padding:0 0 1.2rem;}
+  .newsdate{font-family:"JetBrains Mono",monospace; font-size:0.74rem; color:var(--accent-strong); white-space:nowrap; padding-top:0.15rem; letter-spacing:0.02em;}
+  .newsitem h3{grid-column:2; margin:0 0 0.25rem; font-size:1rem; font-weight:700; color:var(--ink);}
+  .newsitem .meta{grid-column:2; margin:0 0 0.4rem; font-size:0.85rem; color:var(--ink-faint);}
+  .newsitem p{grid-column:2; margin:0; font-size:0.94rem; color:var(--ink-soft);}
 
-  .stance{
-    margin-top:1.6rem; padding-top:1.4rem; border-top:1px dashed var(--line);
-    font-size:0.95rem; color:var(--ink-soft); font-style:italic; max-width:60ch;
-  }
-
-  .jsse{
-    background:var(--paper); border-left:3px solid var(--seal);
-    border-radius:2px; padding:1.5rem 1.6rem;
-  }
-  .jsse .event{
-    font-family:"JetBrains Mono",monospace; font-size:0.78rem; color:var(--seal);
-    letter-spacing:0.02em; margin-bottom:0.7rem;
-  }
-  .jsse .paper-title{
-    font-family:"Shippori Mincho",serif; font-size:1.15rem; font-weight:600;
-    margin:0 0 0.6rem; line-height:1.5;
-  }
-  .jsse .authors{margin:0; color:var(--ink-soft); font-size:0.95rem;}
-
-  footer{
-    display:flex; align-items:center; gap:0.9rem; margin-top:1rem;
-    padding-top:1.6rem; border-top:1px solid var(--line);
-  }
-  footer .hanko{width:34px; height:34px;}
-  footer .hanko text{font-size:9px;}
+  /* ---- footer ---- */
+  footer{margin:1rem 0 4rem; padding-top:1.6rem; border-top:1px solid var(--line);}
   footer .contact{font-size:0.92rem;}
-  footer .contact .en:not([hidden]), footer .contact .ja:not([hidden]){display:block; color:var(--ink-faint); font-size:0.75rem; margin-top:0.1rem;}
+  footer .contact span:not([hidden]){display:block; color:var(--ink-faint); font-size:0.75rem; margin-top:0.1rem;}
 
-  @media (max-width:520px){
-    header.hero{gap:1.1rem;}
-    .nameblock h1{font-size:1.7rem;}
-    .research-item{grid-template-columns:1fr; gap:0.35rem;}
-    .research-item h3, .research-item p{grid-column:1;}
-  }
+  @media (max-width:520px){.nameblock h1{font-size:1.75rem;}}
 </style>
 </head>
 <body>
 
-<div class="wrap">
-
-  <div class="top">
-    <div class="langtoggle" role="group" aria-label="Language / 言語">
-      <button type="button" id="btn-en" class="active" onclick="setLang('en')">EN</button>
-      <button type="button" id="btn-ja" onclick="setLang('ja')">日本語</button>
+<nav class="topnav">
+  <div class="row">
+    <a class="brand" href="index.html">Tal Peer</a>
+    <div class="navlinks">
+      <a href="index.html" class="active"><span class="en">About</span><span class="ja">プロフィール</span></a>
+      <a href="publications.html"><span class="en">Publications</span><span class="ja">論文</span></a>
+      <a href="projects.html"><span class="en">Projects</span><span class="ja">プロジェクト</span></a>
+      <div class="langtoggle" role="group" aria-label="Language / 言語">
+        <button type="button" id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button type="button" id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
     </div>
   </div>
+</nav>
+
+<div class="wrap">
 
   <header class="hero">
-    <svg class="hanko" viewBox="0 0 96 96" aria-hidden="true">
-      <defs>
-        <filter id="stamp" x="-30%" y="-30%" width="160%" height="160%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="6" result="n"/>
-          <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5"/>
-        </filter>
-      </defs>
-      <g filter="url(#stamp)">
-        <circle class="ring" cx="48" cy="48" r="41"/>
-        <text x="48" y="30">ペ</text>
-        <text x="48" y="55">エ</text>
-        <text x="48" y="80">ル</text>
-      </g>
-    </svg>
+    <span class="crest"><img src="maker-logo.png" alt="Maker in Physics"></span>
     <div class="nameblock">
-      <h1>Tal Avraham Peer, Ph.D.<span class="kana ja">タル・ペエル 博士</span></h1>
+      <h1>Tal Peer, Ph.D.<span class="kana ja">タル・ペエル 博士</span></h1>
       <p class="tagline en">Physics Education Researcher &amp; Educator</p>
       <p class="tagline ja">物理教育研究者・物理教師</p>
       <p class="locline">Kagoshima, Japan</p>
@@ -199,62 +133,27 @@
   </svg>
 
   <section class="about">
-    <h2>
-      <span class="en">About</span><span class="ja">プロフィール</span>
-      <span class="sub en">Ph.D., Technion – Israel Institute of Technology</span>
-      <span class="sub ja">理学教育学博士 — テクニオン(イスラエル工科大学)</span>
-    </h2>
-    <p class="en">I research how physics education can keep its value in the age of AI — building curriculum and lab activities around authentic disciplinary engagement and making-based learning. I hold a Ph.D. in Science Education from the Technion, where I remain affiliated with a research group, and spent over a decade teaching high school physics before relocating from Israel to Kagoshima, Japan in 2024.</p>
-    <p class="ja">AI時代における物理教育の意義について研究しています。本物の学問的関与とメイキング(ものづくり)型学習を軸に、カリキュラムと実験活動を開発しています。テクニオンにて理科教育学の博士号を取得し、現在も同大学の研究グループに所属。10年以上にわたり高校で物理を教えた後、2024年にイスラエルから日本の鹿児島県へ移住しました。</p>
+    <h2><span class="en">About</span><span class="ja">プロフィール</span></h2>
+    <div class="about-body">
+      <img class="about-photo" src="photo.jpg" alt="Tal Peer">
+      <div class="about-text">
+        <p class="en">I research how physics education can keep its value in the age of AI — building curriculum and lab activities around authentic disciplinary engagement and making-based learning, an approach I share through my <strong>Maker in Physics</strong> initiative. I hold a Ph.D. in Science Education from the Technion – Israel Institute of Technology, where I remain affiliated with a research group, and spent over a decade teaching high school physics before relocating from Israel to Kagoshima, Japan in 2024.</p>
+        <p class="ja">AI時代における物理教育の意義について研究しています。本物の学問的関与とメイキング(ものづくり)型学習を軸に、カリキュラムと実験活動を開発しており、その取り組みを「<strong>Maker in Physics</strong>」として発信しています。テクニオン(イスラエル工科大学)にて理科教育学の博士号を取得し、現在も同大学の研究グループに所属。10年以上にわたり高校で物理を教えた後、2024年にイスラエルから日本の鹿児島県へ移住しました。</p>
+      </div>
+    </div>
   </section>
 
-  <section class="research">
-    <h2>
-      <span class="en">Research</span><span class="ja">研究</span>
-      <span class="sub en">Curriculum and lab activities in physics education</span>
-      <span class="sub ja">物理教育のためのカリキュラムと実験活動</span>
-    </h2>
-    <ul class="research-list">
-      <li class="research-item">
-        <span class="research-tag">circuits</span>
-        <h3><span class="en">Lamp Challenge</span><span class="ja">電球チャレンジ</span> <span class="heb">(אתגר הנורה)</span></h3>
-        <p class="en">A curriculum unit exploring potentiometer, rheostat, and PWM dimmer circuits, framed around model comparison and loading effects.</p>
-        <p class="ja">ポテンショメータ、レオスタット、PWM調光回路を扱うカリキュラム単元。モデル比較と負荷効果(loading effects)を軸に構成。</p>
-      </li>
-      <li class="research-item">
-        <span class="research-tag">EMF</span>
-        <h3><span class="en">Falling-Magnet Induction</span><span class="ja">落下磁石による電磁誘導</span></h3>
-        <p class="en">A lab activity investigating electromagnetic induction as a magnet falls through a coil.</p>
-        <p class="ja">コイルの中を磁石が落下する際に生じる電磁誘導を検証する実験活動。</p>
-      </li>
-      <li class="research-item">
-        <span class="research-tag">v = √(gh)</span>
-        <h3><span class="en">Shallow-Water Wave Speed</span><span class="ja">浅水波の波速</span></h3>
-        <p class="en">A lab activity testing the shallow-water wave speed relation.</p>
-        <p class="ja">浅水波における波速の関係式を検証する実験活動。</p>
-      </li>
-    </ul>
-    <p class="stance en">Working position: physics education's durable value lies in building students' own judgment — much as exercise retains value even though machines are stronger.</p>
-    <p class="stance ja">研究上の立場: 物理教育の持続的な価値は、生徒自身の判断力を育むことにある — ちょうど、より強力な機械があっても運動そのものに価値があり続けるように。</p>
-  </section>
-
-  <section class="jsse">
-    <div class="event en">JSSE 50th Annual Meeting · Tokyo · September 10–13, 2026</div>
-    <div class="event ja">日本科学教育学会 第50回年会 ・ 東京 ・ 2026年9月10日〜13日</div>
-    <p class="paper-title">Characterizing Meaningful Engagement in a Physics-Based Making Project</p>
-    <p class="authors en">with Prof. Shulamit Kapon (Technion)</p>
-    <p class="authors ja">Shulamit Kapon 教授(テクニオン)との共著</p>
+  <section class="news">
+    <h2><span class="en">Recent &amp; News</span><span class="ja">最近の活動・お知らせ</span></h2>
+    <div class="newsitem">
+      <div class="newsdate">2026.09</div>
+      <h3><span class="en">Presenting at JSSE 50th Annual Meeting</span><span class="ja">日本科学教育学会 第50回年会で発表</span></h3>
+      <p class="meta"><span class="en">Tokyo · September 10–13, 2026 · with Prof. Shulamit Kapon (Technion)</span><span class="ja">東京 ・ 2026年9月10〜13日 ・ Shulamit Kapon 教授(テクニオン)との共著</span></p>
+      <p><span class="en">“Characterizing Meaningful Engagement in a Physics-Based Making Project.”</span><span class="ja">「Characterizing Meaningful Engagement in a Physics-Based Making Project」</span></p>
+    </div>
   </section>
 
   <footer>
-    <svg class="hanko" viewBox="0 0 96 96" aria-hidden="true">
-      <g filter="url(#stamp)">
-        <circle class="ring" cx="48" cy="48" r="41"/>
-        <text x="48" y="30">ペ</text>
-        <text x="48" y="55">エ</text>
-        <text x="48" y="80">ル</text>
-      </g>
-    </svg>
     <div class="contact">
       <a class="link" href="mailto:peertal@gmail.com">peertal@gmail.com</a>
       <span class="en">Get in touch</span>
@@ -269,10 +168,12 @@
     document.querySelectorAll('.en').forEach(function(el){ el.hidden = (lang !== 'en'); });
     document.querySelectorAll('.ja').forEach(function(el){ el.hidden = (lang !== 'ja'); });
     document.documentElement.lang = lang;
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+    var be=document.getElementById('btn-en'), bj=document.getElementById('btn-ja');
+    if(be) be.classList.toggle('active', lang==='en');
+    if(bj) bj.classList.toggle('active', lang==='ja');
+    try{ localStorage.setItem('site-lang', lang); }catch(e){}
   }
-  setLang('en');
+  (function(){ var saved='en'; try{ saved = localStorage.getItem('site-lang') || 'en'; }catch(e){} setLang(saved); })();
 </script>
 </body>
 </html>
