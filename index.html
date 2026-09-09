@@ -52,11 +52,11 @@
   }
   .topnav .row{max-width:720px; margin:0 auto; padding:0.9rem 1.5rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;}
   .brand{font-family:"Shippori Mincho",serif; font-weight:600; font-size:1.05rem; text-decoration:none; color:var(--ink);}
-  .navlinks{display:flex; gap:1.15rem; margin-left:auto; align-items:center; flex-wrap:wrap;}
+  .navlinks{display:flex; gap:1.15rem; margin-left:auto; align-items:center; flex-wrap:wrap; order:1;}
   .navlinks a{text-decoration:none; color:var(--ink-soft); font-size:0.9rem; padding-bottom:2px; border-bottom:2px solid transparent;}
   .navlinks a:hover{color:var(--ink);}
   .navlinks a.active{color:var(--ink); border-bottom-color:var(--accent);}
-  .langtoggle{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; font-family:"JetBrains Mono",monospace; font-size:0.68rem; letter-spacing:0.04em;}
+  .langtoggle{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; font-family:"JetBrains Mono",monospace; font-size:0.68rem; letter-spacing:0.04em; order:2;}
   .langtoggle button{appearance:none; border:none; background:transparent; color:var(--ink-faint); padding:0.35rem 0.7rem; cursor:pointer; font:inherit;}
   .langtoggle button.active{background:var(--accent); color:#fff;}
 
@@ -97,6 +97,8 @@
   footer .contact span:not([hidden]){display:block; color:var(--ink-faint); font-size:0.75rem; margin-top:0.1rem;}
 
   @media (max-width:520px){
+    .langtoggle{order:1; margin-left:auto;}
+    .navlinks{order:2; margin-left:0; flex-basis:100%;}
     .nameblock h1{font-size:1.75rem;}
     header.hero{margin-top:2.2rem; gap:1.1rem;}
     .crest img{height:46px;}
@@ -117,14 +119,14 @@
 <nav class="topnav">
   <div class="row">
     <a class="brand" href="index.html">Tal Peer</a>
+    <div class="langtoggle" role="group" aria-label="Language / 言語">
+      <button type="button" id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button type="button" id="btn-ja" onclick="setLang('ja')">日本語</button>
+    </div>
     <div class="navlinks">
       <a href="index.html" class="active"><span class="en">About</span><span class="ja">プロフィール</span></a>
       <a href="publications.html"><span class="en">Publications</span><span class="ja">論文</span></a>
       <a href="projects.html"><span class="en">Projects</span><span class="ja">プロジェクト</span></a>
-      <div class="langtoggle" role="group" aria-label="Language / 言語">
-        <button type="button" id="btn-en" class="active" onclick="setLang('en')">EN</button>
-        <button type="button" id="btn-ja" onclick="setLang('ja')">日本語</button>
-      </div>
     </div>
   </div>
 </nav>
