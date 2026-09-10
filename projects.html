@@ -86,9 +86,9 @@
   .project.featured .body p{margin:0 0 0.9rem;}
   .eq{font-family:"JetBrains Mono",monospace; font-size:0.9rem; color:var(--accent-strong); white-space:nowrap;}
   .eq sub{font-size:0.7em;} .eq sup{font-size:0.7em;}
-  .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.9rem; margin:1.5rem 0 1.2rem;}
-  .gallery figure{margin:0;}
-  .gallery img{display:block; width:100%; height:190px; object-fit:cover; border-radius:7px; border:1px solid var(--line);}
+  .gallery{column-count:2; column-gap:1.1rem; margin:1.5rem 0 1.2rem;}
+  .gallery figure{margin:0 0 1.1rem; break-inside:avoid;}
+  .gallery img{display:block; width:100%; height:auto; border-radius:7px; border:1px solid var(--line);}
   .gallery figcaption{margin:0.45rem 0 0; font-size:0.8rem; color:var(--ink-faint); line-height:1.5;}
   .paper-link{font-size:0.9rem; color:var(--ink-faint); margin:0;}
 
@@ -98,6 +98,7 @@
   @media (max-width:520px){
     .langtoggle{order:1; margin-left:auto;}
     .navlinks{order:2; margin-left:0; flex-basis:100%;}
+    .gallery{column-count:1;}
   }
 </style>
 </head>
@@ -130,81 +131,57 @@
   </svg>
 
   <!-- ============================================================
-       EACH PROJECT IS ONE <article class="project"> BLOCK.
-       To add a PHOTO: replace the <div class="media">...</div> with
-         <div class="media"><img src="lamp.jpg" alt="Lamp Challenge"></div>
-         (upload lamp.jpg to the repo alongside this file)
-       To add a YOUTUBE VIDEO: replace it with
-         <div class="media"><iframe src="https://www.youtube.com/embed/VIDEO_ID"
-            title="..." allowfullscreen></iframe></div>
+       Each project is one <article class="project"> block.
+       More projects will be added here as they are ready.
        ============================================================ -->
 
   <div class="projects">
 
     <article class="project featured">
       <figure class="hero-shot">
-        <img src="marble-launcher.jpg" alt="A student-built marble launcher on a pegboard: a pivoting arm with a weight, a guide ramp, a steel marble on a wooden block, and a small target ring.">
+        <img src="marble-airlauncher.jpg" alt="A student-built launcher: a pegboard with a row of rings placed along an arc leading to a metal cup, fired by an air launcher fed from a bicycle pump.">
       </figure>
       <div class="body">
-        <span class="tag">projectile motion · making</span>
-        <h3>The Marble Challenge</h3>
-        <p class="lead">Design and build a launcher that fires a marble the same way every time — through a line of rings and into a cup about a metre away. The rings have to be as small as possible. That last constraint is what quietly turns a playful build into real physics.</p>
-        <p>Groups start by tinkering: cutting rings from PVC pipe, mounting them on a pegboard, and nudging things by trial and error until the marble lands in the cup. It works — sometimes. The frustration of <em>sometimes</em> is the whole point. To make the shot reproducible, students have to stop guessing and start modelling the marble's flight.</p>
-        <p>From there it becomes a full arc of projectile motion. They measure the launch speed with a photogate, repeat it 20–30 times, and find the speed isn't a single number but a range — so the marble doesn't trace one path but a whole band of them. The rings have to grow along the trajectory to contain that spread, and where each one goes falls straight out of the model <span class="eq">y = (g / 2v<sub>0</sub><sup>2</sup>)·x<sup>2</sup></span>.</p>
-        <p>Because the mechanism, the look, and the structure were left entirely open, no two launchers were alike — pendulum arms, tunnelled slopes, a bicycle-pump air cannon, even a laser-cut boot that kicks the marble. The creativity isn't decoration; it's what gives students ownership of the physics they end up reaching for.</p>
+        <span class="tag"><span class="en">projectile motion · making</span><span class="ja">放物運動・ものづくり</span></span>
+        <h3><span class="en">The Marble Challenge</span><span class="ja">ビー玉チャレンジ</span></h3>
+
+        <p class="lead en">The students were presented with a challenge and had complete latitude to decide how to meet it: to design and construct a launcher that would launch a marble — in a reproducible way — through a series of rings that they had to place vertically on a wall, and into a small cup. The ring diameters had to be as small as possible, and evenly spaced along the marble's trajectory from the launcher to the cup.</p>
+        <p class="lead ja">生徒たちには課題が与えられ、それをどう達成するかは完全に自由に委ねられました。ビー玉を——再現性のある形で——壁に垂直に取り付けた一連の輪(リング)にくぐらせ、小さなカップに入れる発射装置を設計・製作することが課題です。輪の直径はできるだけ小さくし、発射装置からカップまでのビー玉の軌道に沿って等間隔に配置しなければなりませんでした。</p>
+
+        <p class="en">Each group received a marble, several PVC pipes from which they could cut the rings, a pegboard for the stable attachment of the rings, and a small cup. Students were encouraged to express their creativity in designing the launcher's appearance, mechanism and structure; to build it from scratch, test its performance, present their final artefact to the class, and explain their reasoning. Their launchers exhibited a wide variety of mechanisms, reflecting the open-ended and creative nature of the challenge.</p>
+        <p class="ja">各グループには、ビー玉1個、輪を切り出すための様々な径の塩ビパイプ数本、輪を安定して取り付けるためのペグボード、そして小さなカップが渡されました。発射装置の外観・機構・構造の設計では創造性を発揮すること、ゼロから製作して性能を試すこと、完成した作品をクラスで発表し、その根拠を説明することが求められました。生徒たちの発射装置は実に多様な機構を示し、この課題の開かれた創造的な性格を反映していました。</p>
+
+        <p class="en">Over the activity, the students progressed from initial brainstorming and playful prototyping and tinkering to a gradual refinement of their designs through model-based reasoning. They derived an expression for the marble's trajectory, <span class="eq">y = (g / 2v<sub>0</sub><sup>2</sup>)·x<sup>2</sup></span>, and used it to calculate where to place the rings — transitioning from an open-ended, playful phase to deeper engagement with physics concepts.</p>
+        <p class="ja">活動を通じて、生徒たちは最初のブレインストーミングと遊び心のある試作・試行錯誤から、モデルに基づく推論による設計の段階的な洗練へと進みました。ビー玉の軌道を表す式 <span class="eq">y = (g / 2v<sub>0</sub><sup>2</sup>)·x<sup>2</sup></span> を導き、それを用いて輪を配置する位置を計算し——開かれた遊びの段階から、物理概念へのより深い関与へと移行していきました。</p>
 
         <div class="gallery">
           <figure>
             <img src="marble-students.jpg" alt="Two students at a whiteboard covered in projectile-motion equations, next to their pegboard launcher.">
-            <figcaption>Deriving the trajectory model at the whiteboard.</figcaption>
+            <figcaption><span class="en">Deriving the trajectory model at the whiteboard.</span><span class="ja">ホワイトボードで軌道モデルを導出する。</span></figcaption>
+          </figure>
+          <figure>
+            <img src="marble-photogate.jpg" alt="A laser-cut launch track holding steel marbles, with a photogate sensor clamped at the end to measure the marble's speed.">
+            <figcaption><span class="en">Measuring the launch speed with a photogate sensor.</span><span class="ja">フォトゲートセンサーで発射時の速さを測定する。</span></figcaption>
           </figure>
           <figure>
             <img src="marble-model.jpg" alt="Whiteboard equations for calculating ring placement, including t = √(2y/g).">
-            <figcaption>Calculating where each ring goes — and how big it must be.</figcaption>
+            <figcaption><span class="en">Calculating the placement — and size — of each ring.</span><span class="ja">各リングの配置と大きさを計算する。</span></figcaption>
+          </figure>
+          <figure>
+            <img src="marble-measure.jpg" alt="A student using a tape measure to place rings on the pegboard, with the calculated trajectory open in a spreadsheet on the screen.">
+            <figcaption><span class="en">Placing the rings according to the calculations.</span><span class="ja">計算に基づいてリングを配置する。</span></figcaption>
           </figure>
           <figure>
             <img src="marble-lever.jpg" alt="A laser-cut wooden launcher shaped like a boot, pivoting on a bearing.">
-            <figcaption>One group's launcher: a laser-cut boot that kicks the marble.</figcaption>
+            <figcaption><span class="en">One group's launcher: a laser-cut boot that kicks the marble.</span><span class="ja">あるグループの発射装置——ビー玉を蹴り出すレーザー加工の「ブーツ」。</span></figcaption>
+          </figure>
+          <figure>
+            <img src="marble-poster.jpg" alt="A group's final project board on a pegboard, with the launcher, a row of rings, a trajectory graph, and a target cup.">
+            <figcaption><span class="en">A group's final artefact, presented to the class.</span><span class="ja">クラスで発表された、あるグループの完成作品。</span></figcaption>
           </figure>
         </div>
 
-        <p class="paper-link">Full study: <a class="link" href="https://doi.org/10.1088/1361-6552/ae0d26">Peer &amp; Kapon (2025), <em>Physics Education</em>, 60(6)</a></p>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="media">PHOTO / VIDEO — coming soon</div>
-      <div class="body">
-        <span class="tag">circuits</span>
-        <h3>Lamp Challenge (אתגר הנורה)</h3>
-        <p>A curriculum unit exploring potentiometer, rheostat, and PWM dimmer circuits, framed around model comparison and loading effects.</p>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="media">PHOTO / VIDEO — coming soon</div>
-      <div class="body">
-        <span class="tag">electromagnetism</span>
-        <h3>Falling-Magnet Induction</h3>
-        <p>A lab activity investigating electromagnetic induction as a magnet falls through a coil — connecting measurement, modelling, and Faraday's law.</p>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="media">PHOTO / VIDEO — coming soon</div>
-      <div class="body">
-        <span class="tag">waves</span>
-        <h3>Shallow-Water Wave Speed</h3>
-        <p>A hands-on activity testing the shallow-water wave-speed relation v = √(gh), linking measurement to the underlying physical model.</p>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="media">PHOTO / VIDEO — coming soon</div>
-      <div class="body">
-        <span class="tag">making</span>
-        <h3>Paper-Airplane Launcher</h3>
-        <p>A build-and-test project adapting a KiWiCo launcher kit for the classroom, with instructions simplified for younger makers and metric measurement.</p>
+        <p class="paper-link"><span class="en">Full study:</span><span class="ja">論文全文:</span> <a class="link" href="https://doi.org/10.1088/1361-6552/ae0d26">Peer &amp; Kapon (2025), <em>Physics Education</em>, 60(6)</a></p>
       </div>
     </article>
 
