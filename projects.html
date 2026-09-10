@@ -77,6 +77,21 @@
   .project h3{font-family:"Shippori Mincho",serif; font-weight:600; font-size:1.15rem; margin:0 0 0.5rem; color:var(--ink);}
   .project p{margin:0; color:var(--ink-soft); font-size:0.96rem;}
 
+  /* ---- featured project (Marble Challenge) ---- */
+  .project.featured .hero-shot{margin:0;}
+  .project.featured .hero-shot img{display:block; width:100%; max-height:420px; object-fit:cover; object-position:center 42%; border-bottom:1px solid var(--line);}
+  .project.featured h3{font-size:1.5rem; margin-bottom:0.7rem;}
+  .project.featured .body{padding:1.5rem 1.5rem 1.7rem;}
+  .project.featured .lead{font-size:1.08rem; color:var(--ink); margin:0 0 0.9rem; line-height:1.7;}
+  .project.featured .body p{margin:0 0 0.9rem;}
+  .eq{font-family:"JetBrains Mono",monospace; font-size:0.9rem; color:var(--accent-strong); white-space:nowrap;}
+  .eq sub{font-size:0.7em;} .eq sup{font-size:0.7em;}
+  .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.9rem; margin:1.5rem 0 1.2rem;}
+  .gallery figure{margin:0;}
+  .gallery img{display:block; width:100%; height:190px; object-fit:cover; border-radius:7px; border:1px solid var(--line);}
+  .gallery figcaption{margin:0.45rem 0 0; font-size:0.8rem; color:var(--ink-faint); line-height:1.5;}
+  .paper-link{font-size:0.9rem; color:var(--ink-faint); margin:0;}
+
   footer{margin:3rem 0 4rem; padding-top:1.6rem; border-top:1px solid var(--line); font-size:0.9rem; color:var(--ink-faint);}
   footer a.link{color:var(--accent-strong);}
 
@@ -125,6 +140,37 @@
        ============================================================ -->
 
   <div class="projects">
+
+    <article class="project featured">
+      <figure class="hero-shot">
+        <img src="marble-launcher.jpg" alt="A student-built marble launcher on a pegboard: a pivoting arm with a weight, a guide ramp, a steel marble on a wooden block, and a small target ring.">
+      </figure>
+      <div class="body">
+        <span class="tag">projectile motion · making</span>
+        <h3>The Marble Challenge</h3>
+        <p class="lead">Design and build a launcher that fires a marble the same way every time — through a line of rings and into a cup about a metre away. The rings have to be as small as possible. That last constraint is what quietly turns a playful build into real physics.</p>
+        <p>Groups start by tinkering: cutting rings from PVC pipe, mounting them on a pegboard, and nudging things by trial and error until the marble lands in the cup. It works — sometimes. The frustration of <em>sometimes</em> is the whole point. To make the shot reproducible, students have to stop guessing and start modelling the marble's flight.</p>
+        <p>From there it becomes a full arc of projectile motion. They measure the launch speed with a photogate, repeat it 20–30 times, and find the speed isn't a single number but a range — so the marble doesn't trace one path but a whole band of them. The rings have to grow along the trajectory to contain that spread, and where each one goes falls straight out of the model <span class="eq">y = (g / 2v<sub>0</sub><sup>2</sup>)·x<sup>2</sup></span>.</p>
+        <p>Because the mechanism, the look, and the structure were left entirely open, no two launchers were alike — pendulum arms, tunnelled slopes, a bicycle-pump air cannon, even a laser-cut boot that kicks the marble. The creativity isn't decoration; it's what gives students ownership of the physics they end up reaching for.</p>
+
+        <div class="gallery">
+          <figure>
+            <img src="marble-students.jpg" alt="Two students at a whiteboard covered in projectile-motion equations, next to their pegboard launcher.">
+            <figcaption>Deriving the trajectory model at the whiteboard.</figcaption>
+          </figure>
+          <figure>
+            <img src="marble-model.jpg" alt="Whiteboard equations for calculating ring placement, including t = √(2y/g).">
+            <figcaption>Calculating where each ring goes — and how big it must be.</figcaption>
+          </figure>
+          <figure>
+            <img src="marble-lever.jpg" alt="A laser-cut wooden launcher shaped like a boot, pivoting on a bearing.">
+            <figcaption>One group's launcher: a laser-cut boot that kicks the marble.</figcaption>
+          </figure>
+        </div>
+
+        <p class="paper-link">Full study: <a class="link" href="https://doi.org/10.1088/1361-6552/ae0d26">Peer &amp; Kapon (2025), <em>Physics Education</em>, 60(6)</a></p>
+      </div>
+    </article>
 
     <article class="project">
       <div class="media">PHOTO / VIDEO — coming soon</div>
