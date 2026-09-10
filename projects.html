@@ -82,6 +82,11 @@
   .project.featured .hero-shot img{display:block; width:100%; max-height:420px; object-fit:cover; object-position:center 42%; border-bottom:1px solid var(--line);}
   .project.featured h3{font-size:1.5rem; margin-bottom:0.7rem;}
   .project.featured .body{padding:1.5rem 1.5rem 1.7rem;}
+  .project.featured .pullquote{
+    font-family:"Shippori Mincho",serif; font-size:1.22rem; line-height:1.55;
+    color:var(--accent-strong); border-left:3px solid var(--accent);
+    padding:0.1rem 0 0.15rem 1rem; margin:0 0 1.3rem;
+  }
   .project.featured .lead{font-size:1.08rem; color:var(--ink); margin:0 0 0.9rem; line-height:1.7;}
   .project.featured .body p{margin:0 0 0.9rem;}
   .eq{font-family:"JetBrains Mono",monospace; font-size:0.9rem; color:var(--accent-strong); white-space:nowrap;}
@@ -139,11 +144,13 @@
 
     <article class="project featured">
       <figure class="hero-shot">
-        <img src="marble-airlauncher.jpg" alt="A student-built launcher: a pegboard with a row of rings placed along an arc leading to a metal cup, fired by an air launcher fed from a bicycle pump.">
+        <img src="marble-launcher.jpg" alt="A student-built marble launcher on a pegboard: a pivoting weighted arm, a PVC guide ring, a steel marble resting on a wooden block, and a small target ring.">
       </figure>
       <div class="body">
         <span class="tag"><span class="en">projectile motion · making</span><span class="ja">放物運動・ものづくり</span></span>
         <h3><span class="en">The Marble Challenge</span><span class="ja">ビー玉チャレンジ</span></h3>
+
+        <p class="pullquote"><span class="en">Transitioning from an open-ended, playful phase to deeper engagement with physics concepts.</span><span class="ja">開かれた遊びの段階から、物理概念へのより深い関与へ。</span></p>
 
         <p class="lead en">The students were presented with a challenge and had complete latitude to decide how to meet it: to design and construct a launcher that would launch a marble — in a reproducible way — through a series of rings that they had to place vertically on a wall, and into a small cup. The ring diameters had to be as small as possible, and evenly spaced along the marble's trajectory from the launcher to the cup.</p>
         <p class="lead ja">生徒たちには課題が与えられ、それをどう達成するかは完全に自由に委ねられました。ビー玉を——再現性のある形で——壁に垂直に取り付けた一連の輪(リング)にくぐらせ、小さなカップに入れる発射装置を設計・製作することが課題です。輪の直径はできるだけ小さくし、発射装置からカップまでのビー玉の軌道に沿って等間隔に配置しなければなりませんでした。</p>
@@ -151,8 +158,8 @@
         <p class="en">Each group received a marble, several PVC pipes from which they could cut the rings, a pegboard for the stable attachment of the rings, and a small cup. Students were encouraged to express their creativity in designing the launcher's appearance, mechanism and structure; to build it from scratch, test its performance, present their final artefact to the class, and explain their reasoning. Their launchers exhibited a wide variety of mechanisms, reflecting the open-ended and creative nature of the challenge.</p>
         <p class="ja">各グループには、ビー玉1個、輪を切り出すための様々な径の塩ビパイプ数本、輪を安定して取り付けるためのペグボード、そして小さなカップが渡されました。発射装置の外観・機構・構造の設計では創造性を発揮すること、ゼロから製作して性能を試すこと、完成した作品をクラスで発表し、その根拠を説明することが求められました。生徒たちの発射装置は実に多様な機構を示し、この課題の開かれた創造的な性格を反映していました。</p>
 
-        <p class="en">Over the activity, the students progressed from initial brainstorming and playful prototyping and tinkering to a gradual refinement of their designs through model-based reasoning. They derived an expression for the marble's trajectory, <span class="eq">y = (g / 2v<sub>0</sub><sup>2</sup>)·x<sup>2</sup></span>, and used it to calculate where to place the rings — transitioning from an open-ended, playful phase to deeper engagement with physics concepts.</p>
-        <p class="ja">活動を通じて、生徒たちは最初のブレインストーミングと遊び心のある試作・試行錯誤から、モデルに基づく推論による設計の段階的な洗練へと進みました。ビー玉の軌道を表す式 <span class="eq">y = (g / 2v<sub>0</sub><sup>2</sup>)·x<sup>2</sup></span> を導き、それを用いて輪を配置する位置を計算し——開かれた遊びの段階から、物理概念へのより深い関与へと移行していきました。</p>
+        <p class="en">Over the activity, the students progressed from initial brainstorming and playful prototyping and tinkering to a gradual refinement of their designs through model-based reasoning. They derived an expression for the marble's trajectory, <span class="eq">y = (g / 2v<sub>0</sub><sup>2</sup>)·x<sup>2</sup></span>, and used it to calculate where to place the rings.</p>
+        <p class="ja">活動を通じて、生徒たちは最初のブレインストーミングと遊び心のある試作・試行錯誤から、モデルに基づく推論による設計の段階的な洗練へと進みました。ビー玉の軌道を表す式 <span class="eq">y = (g / 2v<sub>0</sub><sup>2</sup>)·x<sup>2</sup></span> を導き、それを用いて輪を配置する位置を計算しました。</p>
 
         <div class="gallery">
           <figure>
@@ -174,6 +181,10 @@
           <figure>
             <img src="marble-lever.jpg" alt="A laser-cut wooden launcher shaped like a boot, pivoting on a bearing.">
             <figcaption><span class="en">One group's launcher: a laser-cut boot that kicks the marble.</span><span class="ja">あるグループの発射装置——ビー玉を蹴り出すレーザー加工の「ブーツ」。</span></figcaption>
+          </figure>
+          <figure>
+            <img src="marble-airlauncher.jpg" alt="Another launcher: a bicycle-pump air launcher feeding a pegboard with a row of rings and a metal target cup.">
+            <figcaption><span class="en">Another mechanism: a bicycle-pump air launcher.</span><span class="ja">別の機構——空気圧(自転車用ポンプ)式の発射装置。</span></figcaption>
           </figure>
           <figure>
             <img src="marble-poster.jpg" alt="A group's final project board on a pegboard, with the launcher, a row of rings, a trajectory graph, and a target cup.">
