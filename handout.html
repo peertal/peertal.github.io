@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSSE 2026 Handout · Tal Peer</title>
+<meta name="description" content="Presentation handout (Japanese) — Tal Peer, JSSE 50th Annual Meeting, 2026.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#F5F3ED; --paper:#EBE6D8;
+    --ink:#20232C; --ink-soft:#4E5364; --ink-faint:#87877B;
+    --accent:#167A5A; --accent-strong:#0E5F46; --accent-soft:#167A5A22;
+    --line:#DAD4C3; --focus:#0E5F46;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14171B; --paper:#1C2026;
+      --ink:#ECE8DC; --ink-soft:#B4B1A5; --ink-faint:#6E7180;
+      --accent:#4FBE92; --accent-strong:#6FD0A8; --accent-soft:#4FBE9226;
+      --line:#2B2F37; --focus:#6FD0A8;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14171B; --paper:#1C2026;
+    --ink:#ECE8DC; --ink-soft:#B4B1A5; --ink-faint:#6E7180;
+    --accent:#4FBE92; --accent-strong:#6FD0A8; --accent-soft:#4FBE9226;
+    --line:#2B2F37; --focus:#6FD0A8;
+  }
+  *{box-sizing:border-box;}
+  html{background:var(--bg);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:"Zen Kaku Gothic New","Hiragino Sans",system-ui,sans-serif; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  [hidden]{display:none!important;}
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:2px;}
+  .wrap{max-width:640px; margin:0 auto; padding:0 1.5rem;}
+
+  .topnav{border-bottom:1px solid var(--line); background:color-mix(in srgb, var(--bg) 88%, transparent); position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(6px);}
+  .topnav .row{max-width:640px; margin:0 auto; padding:0.9rem 1.5rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;}
+  .brand{font-family:"Shippori Mincho",serif; font-weight:600; font-size:1.05rem; text-decoration:none; color:var(--ink);}
+  .navlinks{display:flex; gap:1.15rem; margin-left:auto; align-items:center; flex-wrap:wrap;}
+  .navlinks a{text-decoration:none; color:var(--ink-soft); font-size:0.9rem; padding-bottom:2px; border-bottom:2px solid transparent;}
+  .navlinks a:hover{color:var(--ink); border-bottom-color:var(--accent);}
+
+  .hero{text-align:center; padding:2.8rem 0 1rem;}
+  .kicker{font-family:"JetBrains Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--accent-strong); text-transform:uppercase; margin:0 0 1.3rem;}
+  .title-ja{font-family:"Shippori Mincho",serif; font-weight:600; font-size:1.5rem; line-height:1.5; margin:0 0 0.6rem; text-wrap:balance;}
+  .title-en{font-size:0.98rem; color:var(--ink-soft); margin:0 0 1.1rem; line-height:1.55;}
+  .authors{font-size:0.9rem; color:var(--ink-faint); margin:0 0 2.2rem;}
+
+  .cta{
+    display:inline-flex; flex-direction:column; align-items:center; gap:0.2rem;
+    background:var(--accent); color:#fff; text-decoration:none;
+    padding:1.15rem 2.4rem; border-radius:12px; box-shadow:0 6px 18px var(--accent-soft);
+    transition:transform 0.08s ease, box-shadow 0.15s ease;
+  }
+  .cta:hover{transform:translateY(-1px); box-shadow:0 8px 22px var(--accent-soft);}
+  .cta:active{transform:translateY(0);}
+  .cta .big{font-family:"Shippori Mincho",serif; font-weight:600; font-size:1.28rem; letter-spacing:0.02em;}
+  .cta .small{font-size:0.82rem; opacity:0.92;}
+  .cta-note{margin:0.9rem 0 0; font-size:0.8rem; color:var(--ink-faint);}
+
+  .explore{margin:3rem 0 3.5rem; padding-top:1.8rem; border-top:1px solid var(--line);}
+  .explore p{text-align:center; font-size:0.94rem; color:var(--ink-soft); margin:0 0 1.3rem;}
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:0.8rem;}
+  .card{
+    display:block; text-decoration:none; text-align:center;
+    border:1px solid var(--line); border-radius:10px; padding:1.1rem 0.6rem; background:var(--paper);
+    transition:border-color 0.15s ease, transform 0.08s ease;
+  }
+  .card:hover{border-color:var(--accent); transform:translateY(-2px);}
+  .card .c-ja{font-family:"Shippori Mincho",serif; font-weight:600; font-size:1rem; color:var(--ink); display:block;}
+  .card .c-en{font-family:"JetBrains Mono",monospace; font-size:0.66rem; letter-spacing:0.04em; color:var(--ink-faint); text-transform:uppercase; display:block; margin-top:0.25rem;}
+
+  footer{margin:0 0 3rem; text-align:center; font-size:0.82rem; color:var(--ink-faint);}
+
+  @media (max-width:460px){
+    .title-ja{font-size:1.28rem;}
+    .cta{width:100%; padding:1.15rem 1rem;}
+    .cards{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="row">
+    <a class="brand" href="index.html">Tal Peer</a>
+    <div class="navlinks">
+      <a href="index.html">About / プロフィール</a>
+      <a href="publications.html">Publications / 論文</a>
+      <a href="projects.html">Projects / プロジェクト</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero">
+    <p class="kicker">JSSE 2026 · 日本科学教育学会 第50回年会</p>
+    <h1 class="title-ja">物理を基盤とするメイキング・プロジェクトにおける意味のある関与の特徴づけ</h1>
+    <p class="title-en">Characterizing Meaningful Engagement in a Physics-Based Making Project</p>
+    <p class="authors">Tal Peer &amp; Shulamit Kapon · Technion – Israel Institute of Technology</p>
+
+    <a class="cta" href="handout.pdf" target="_blank" rel="noopener">
+      <span class="big">発表資料（PDF）を開く</span>
+      <span class="small">Open the presentation handout (PDF)</span>
+    </a>
+    <p class="cta-note">日本語版 ／ Japanese version of the talk</p>
+  </section>
+
+  <section class="explore">
+    <p>スキャンいただきありがとうございます。<br>他の研究やプロジェクトもぜひご覧ください。<br><span style="color:var(--ink-faint)">Thanks for scanning — explore the rest of my work.</span></p>
+    <div class="cards">
+      <a class="card" href="index.html"><span class="c-ja">プロフィール</span><span class="c-en">About</span></a>
+      <a class="card" href="publications.html"><span class="c-ja">論文</span><span class="c-en">Publications</span></a>
+      <a class="card" href="projects.html"><span class="c-ja">プロジェクト</span><span class="c-en">Projects</span></a>
+    </div>
+  </section>
+
+  <footer>peertal.github.io</footer>
+
+</div>
+
+</body>
+</html>
