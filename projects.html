@@ -87,6 +87,7 @@
     color:var(--accent-strong); border-left:3px solid var(--accent);
     padding:0.1rem 0 0.15rem 1rem; margin:0 0 1.3rem;
   }
+  .project.featured .credit{font-size:0.85rem; color:var(--ink-faint); margin:0 0 1rem;}
   .project.featured .lead{font-size:1.08rem; color:var(--ink); margin:0 0 0.9rem; line-height:1.7;}
   .project.featured .body p{margin:0 0 0.9rem;}
   .eq{font-family:"JetBrains Mono",monospace; font-size:0.9rem; color:var(--accent-strong); white-space:nowrap;}
@@ -193,6 +194,51 @@
         </div>
 
         <p class="paper-link"><span class="en">Full study:</span><span class="ja">論文全文:</span> <a class="link" href="https://doi.org/10.1088/1361-6552/ae0d26">Peer &amp; Kapon (2025), <em>Physics Education</em>, 60(6)</a></p>
+      </div>
+    </article>
+
+    <article class="project featured">
+      <figure class="hero-shot">
+        <img src="rb-hero.jpg" alt="A student-built apparatus: a coil-carrying cart on a horizontal rail, running between magnets, with sensor wires connected to a voltmeter.">
+      </figure>
+      <div class="body">
+        <span class="tag"><span class="en">high-school inquiry · electromagnetism</span><span class="ja">高校・探究・電磁気</span></span>
+        <h3><span class="en">Regenerative Braking</span><span class="ja">回生ブレーキ</span></h3>
+        <p class="credit"><span class="en">A high-school inquiry-based physics research project by Nadav Fedida &amp; Nerin Harshuk, advised by Tal Peer · 2024</span><span class="ja">高校の探究型物理研究プロジェクト — Nadav Fedida・Nerin Harshuk(指導：Tal Peer)・2024年</span></p>
+
+        <p class="pullquote"><span class="en">Don't throw a moving object's energy away as heat — capture it as electricity.</span><span class="ja">運動エネルギーを熱として捨てず、電気として回収する。</span></p>
+
+        <p class="lead en">Working in the lab's makerspace, two students designed and built their own experimental system from scratch to investigate regenerative braking. When a car, a train, or an elevator brakes, its energy of motion is usually lost as heat; regenerative braking recovers that energy instead, turning the motion into electricity — and, as a by-product, slowing the vehicle down. It's the idea behind electric and hybrid vehicles.</p>
+        <p class="lead ja">二人の生徒は、ラボのメイカースペースで、自分たち自身の実験装置をゼロから設計・製作し、回生ブレーキを探究しました。車や電車、エレベーターがブレーキをかけるとき、その運動エネルギーはふつう熱として失われます。回生ブレーキはその運動を電気に変えてエネルギーを回収し、その副産物として車を減速させます——電気自動車やハイブリッド車の背後にある考え方です。</p>
+
+        <p class="en">In their system, a coil moves through a magnetic field, and the motion induces a voltage. Measuring the induced voltage against the coil's speed, they found that it rises with speed, in accordance with Faraday's law — the faster the motion, the more electricity generated, and the stronger the braking.</p>
+        <p class="ja">この装置ではコイルが磁場の中を動き、その運動が電圧を誘導します。誘導電圧をコイルの速さに対して測定したところ、電圧は速さとともに増加し、ファラデーの法則に沿う結果が得られました——速く動くほど多くの電気が生まれ、制動も強くなります。</p>
+
+        <p class="en">They then built and studied a system that controls the regenerative braking by changing the external resistance in the circuit — tuning how strongly it brakes and how much of the motion's energy it recovers.</p>
+        <p class="ja">さらに、回路の外部抵抗を変化させることで回生ブレーキを制御するシステムを製作し、調べました——どれだけ強く制動するか、運動のエネルギーをどれだけ回収するかを調整します。</p>
+
+        <div class="gallery">
+          <figure>
+            <img src="rb-device.jpg" alt="A 3D-printed red frame holding magnets and coils — the electromagnetic generator that brakes the motion.">
+            <figcaption><span class="en">The heart of the system — a 3D-printed electromagnetic generator that brakes the motion.</span><span class="ja">システムの中核——運動を制動する3Dプリント製の電磁発電機。</span></figcaption>
+          </figure>
+          <figure>
+            <img src="rb-disk.jpg" alt="A close-up of the rotating purple coil connected by a string.">
+            <figcaption><span class="en">The rotating coil that turns motion into current.</span><span class="ja">運動を電流に変える回転コイル。</span></figcaption>
+          </figure>
+          <figure>
+            <img src="rb-pendulum.jpg" alt="A pendulum with a purple coil at its end, marked with the heights h1 and h2 it swings between.">
+            <figcaption><span class="en">An energy-conversion setup: measuring the height a pendulum loses to braking.</span><span class="ja">エネルギー変換の実験——制動によって振り子が失う高さを測定する。</span></figcaption>
+          </figure>
+          <figure>
+            <img src="rb-graph.jpg" alt="A scatter plot of induced voltage against coil speed, with a straight-line fit and R-squared of 0.98.">
+            <figcaption><span class="en">Induced voltage rises linearly with the coil's speed (R² = 0.98).</span><span class="ja">誘導電圧はコイルの速さに比例して直線的に増加する(R² = 0.98)。</span></figcaption>
+          </figure>
+          <figure>
+            <img src="rb-voltage.jpg" alt="A voltage-versus-time trace showing a decaying oscillation as the system harvests energy.">
+            <figcaption><span class="en">Induced voltage decaying as the system harvests the motion's energy.</span><span class="ja">運動のエネルギーを回収するにつれ減衰していく誘導電圧。</span></figcaption>
+          </figure>
+        </div>
       </div>
     </article>
 
